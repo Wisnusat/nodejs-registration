@@ -1,5 +1,5 @@
 const express = require('express');
-const { registerUser } = require('../controllers/userController');
+const { registerUser, approveUser } = require('../controllers/userController');
 const upload = require('../middlewares/uploadMiddleware'); // Import middleware multer untuk file upload
 
 const router = express.Router();
@@ -10,5 +10,7 @@ router.post('/register', upload.fields([
     { name: 'npwp', maxCount: 1 },
     { name: 'ktp', maxCount: 1 }
 ]), registerUser);
+
+router.post('/approve/:token', approveUser);
 
 module.exports = router;

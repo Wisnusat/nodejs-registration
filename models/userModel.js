@@ -47,6 +47,10 @@ const userSchema = new mongoose.Schema({
             filePath: String,
         }
     },
+    isActive: {
+        type: Boolean,
+        required: true,
+    }
 }, {
     timestamp: true,
 });
